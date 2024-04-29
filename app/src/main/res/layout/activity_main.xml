@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/purple"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:background="@color/purple"
+        android:elevation="4dp"
+        tools:ignore="MissingConstraints" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.drawerlayout.widget.DrawerLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:background="@color/white"
+            android:id="@+id/drawerLayout"
+            tools:openDrawer="start">
+
+            <com.google.android.material.navigation.NavigationView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:headerLayout="@layout/header"
+                android:elevation="4dp"
+                android:background="#2C1919"
+                android:id="@+id/navigation"
+                app:menu="@menu/nav_item"
+                android:layout_gravity="start"/>
+
+        </androidx.drawerlayout.widget.DrawerLayout>
+
+
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_marginBottom="0dp"
+        android:id="@+id/bottom"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav"
+        android:layout_below="@id/drawerLayout"
+        android:background="@color/purple"
+        app:itemTextColor="@color/white"
+        app:itemIconTint="@color/white"
+        tools:ignore="NotSibling" />
+
+
+</RelativeLayout>
+

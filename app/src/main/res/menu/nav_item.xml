@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+    <item
+        android:title=" General">
+
+        <menu>
+            <group
+                android:checkableBehavior="single">
+
+
+                <item
+                    android:id="@+id/home"
+                    android:icon="@drawable/baseline_home_24"
+                    android:title="Home"/>
+
+                <item
+                    android:id="@+id/settings"
+                    android:icon="@drawable/baseline_settings_24"
+                    android:title="Settings"/>
+
+
+                <item
+                    android:id="@+id/about"
+                    android:icon="@drawable/baseline_info_24"
+                    android:title="About"/>
+
+
+            </group>
+        </menu>
+
+    </item>
+
+    <item
+        android:title=" Profile">
+
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/profile"
+                    android:icon="@drawable/baseline_logout_24"
+                    android:title="Profile"/>
+
+            </group>
+
+        </menu>
+
+
+    </item>
+
+    <item
+        android:title=" Communicate">
+
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/rate"
+                    android:icon="@drawable/baseline_rate_review_24"
+                    android:title="Rate This App"/>
+
+                <item
+                    android:id="@+id/shareapp"
+                    android:icon="@drawable/baseline_share_24"
+                    android:title="Share App"/>
+
+                <item
+                    android:id="@+id/feedback"
+                    android:icon="@drawable/baseline_feedback_24"
+                    android:title="Send Feedback"/>
+
+            </group>
+
+        </menu>
+
+
+    </item>
+
+    <item
+        android:title=" Accounts">
+
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/logout"
+                    android:icon="@drawable/baseline_logout_24"
+                    android:title="Logout"/>
+
+            </group>
+
+        </menu>
+
+
+    </item>
+
+</menu>

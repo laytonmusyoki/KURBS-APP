@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">KURBS</string>
+    <string name="open_nav">Open Navigation</string>
+    <string name="close_nav">Close Navigation</string>
+</resources>
