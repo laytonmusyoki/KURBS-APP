@@ -1,5 +1,6 @@
 package com.example.pension;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,15 +16,29 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemReselectedListener {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
 
     BottomNavigationView bottomNavigationView;
+
+    RecyclerView recyclerView;
+    LinearLayoutManager linearLayoutManager;
+    Adapter adapter;
+    List<User> userList;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -44,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,14 +74,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         androidx.appcompat.widget.Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open_nav,R.string.close_nav);
 
+
+        ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open_nav,R.string.close_nav);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+
 
         navigationView.setNavigationItemSelectedListener(this);
 
         bottomNavigationView.setOnNavigationItemReselectedListener(this);
+
+//        setRecyclerView();
+
+
+
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -74,10 +99,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
+
+
+
+//    private void setRecyclerView() {
+//        recyclerView=findViewById(R.id.recycler);
+//        linearLayoutManager=new LinearLayoutManager(this);
+//        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+//        recyclerView.setLayoutManager(linearLayoutManager);
+//        adapter=new Adapter(userList);
+//        recyclerView.setAdapter(adapter);
+//        adapter.notifyDataSetChanged();
+//    }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id=menuItem.getItemId();
         if(id==R.id.profile){
+            onBackPressed();
             Intent intent=new Intent(MainActivity.this,ProfileActivity.class);
             startActivity(intent);
         }
